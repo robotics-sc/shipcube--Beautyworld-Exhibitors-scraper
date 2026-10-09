@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "ShipCube Beautyworld Lead Scraper",
+  "version": "3.0",
+  "description": "Collect Beautyworld Dubai 2026 exhibitors and prepare ShipCube outreach.",
+  "permissions": ["storage", "unlimitedStorage", "sidePanel", "tabs"],
+  "host_permissions": [
+    "https://beautyworld-dubai.ae.messefrankfurt.com/*",
+    "https://script.google.com/*",
+    "https://script.googleusercontent.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "action": { "default_title": "ShipCube Lead Scraper" },
+  "content_scripts": [
+    {
+      "matches": ["https://beautyworld-dubai.ae.messefrankfurt.com/*"],
+      "js": ["injected.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://beautyworld-dubai.ae.messefrankfurt.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

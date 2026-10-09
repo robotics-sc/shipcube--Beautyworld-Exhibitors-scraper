@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ShipCube Lead Scraper</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 12px; font-size: 13px; color: #222; }
+  h2 { font-size: 15px; margin: 0 0 2px; }
+  .sub { color: #666; font-size: 12px; margin-bottom: 12px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .stat { background: #f4f4f4; border-radius: 6px; padding: 8px; text-align: center; }
+  .stat b { display: block; font-size: 20px; color: #c8102e; }
+  .stat span { font-size: 11px; color: #555; }
+  button { width: 100%; padding: 9px; margin: 4px 0; font-size: 13px; cursor: pointer; border-radius: 6px; border: 1px solid #bbb; background: #fff; }
+  button.primary { background: #c8102e; color: #fff; border-color: #c8102e; }
+  .hint { font-size: 11px; color: #666; margin-top: 8px; }
+  #log { margin-top: 10px; background: #fafafa; border: 1px solid #ddd; padding: 8px; height: 180px; overflow: auto; font-size: 11px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+  <h2>ShipCube – Beautyworld Dubai 2026</h2>
+  <div class="sub">Lead collector</div>
+  <div class="stats">
+    <div class="stat"><b id="captured">0</b><span>captured</span></div>
+    <div class="stat"><b id="total">–</b><span>on website</span></div>
+    <div class="stat"><b id="lastPage">–</b><span>last page</span></div>
+  </div>
+    <button id="startBtn" class="primary">Start auto-collect (all pages)</button>
+  <button id="stopBtn">Stop</button>
+  <div id="autoStatus" class="hint" style="font-weight:bold;color:#222;">Auto-collect: idle</div>
+    <button id="exportBtn">Export CSV</button>
+  <input id="sheetUrl" placeholder="Paste Apps Script Web app URL (…/exec)" style="width:100%;box-sizing:border-box;padding:7px;margin:8px 0 2px;font-size:12px;">
+  <button id="sheetBtn" class="primary">Send to Google Sheet</button>
+  <div id="sheetStatus" class="hint"></div>
+  <button id="clearBtn">Clear all data</button>
+  <div class="hint">Open the exhibitor list page and click through the pages. Every page is captured automatically.</div>
+  <div id="log"></div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
